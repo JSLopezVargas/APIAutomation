@@ -17,15 +17,11 @@ public class ExcelReader {
      * Obtiene los datos de un archivo de excel, teniendo en cuenta el nombre de la
      * hoja
      *
-     * @param excelFilePath
-     *            Ruta del libro de excel
-     * @param sheetName
-     *            Nombre de la hoja que contiene los datos
+     * @param excelFilePath Ruta del libro de excel
+     * @param sheetName     Nombre de la hoja que contiene los datos
      * @return
-     * @throws InvalidFormatException
-     *             Manejo de error por formato inválido
-     * @throws IOException
-     *             Manejo de error para el proceso de entrada y salida de datos
+     * @throws InvalidFormatException Manejo de error por formato inválido
+     * @throws IOException            Manejo de error para el proceso de entrada y salida de datos
      */
     public List<Map<String, String>> getData(String excelFilePath, String sheetName)
             throws InvalidFormatException, IOException {
@@ -37,15 +33,11 @@ public class ExcelReader {
      * Obtiene los datos de un archivo de excel, teniendo en cuenta el numero de la
      * hoja
      *
-     * @param excelFilePath
-     *            Ruta del libro de excel
-     * @param sheetNumber
-     *            Nombre de la hoja que contiene los datos
+     * @param excelFilePath Ruta del libro de excel
+     * @param sheetNumber   Nombre de la hoja que contiene los datos
      * @return
-     * @throws InvalidFormatException
-     *             Manejo de error por formato inválido
-     * @throws IOException
-     *             Manejo de error para el proceso de entrada y salida de datos
+     * @throws InvalidFormatException Manejo de error por formato inválido
+     * @throws IOException            Manejo de error para el proceso de entrada y salida de datos
      */
     public List<Map<String, String>> getData(String excelFilePath, int sheetNumber)
             throws InvalidFormatException, IOException {
@@ -57,10 +49,8 @@ public class ExcelReader {
      * Obtiene la hoja de trabajo donde se encuentran los datos de acuerdo a la
      * ruta del archivo
      *
-     * @param excelFilePath
-     *            Ruta del libro de excel
-     * @param sheetName
-     *            Nombre de la hoja que contiene los datos
+     * @param excelFilePath Ruta del libro de excel
+     * @param sheetName     Nombre de la hoja que contiene los datos
      * @return
      * @throws IOException
      * @throws InvalidFormatException
@@ -74,15 +64,13 @@ public class ExcelReader {
      * Obtiene los hoja de trabajo donde se encuentran los datos de acuerdo al index
      * de la hoja
      *
-     * @since 27/11/2017
-     * @author bgaona
-     * @param excelFilePath
-     *            Ruta del libro de excel
-     * @param sheetNumber
-     *            Indice de tipo entero de la hoja en el libro de excel
+     * @param excelFilePath Ruta del libro de excel
+     * @param sheetNumber   Indice de tipo entero de la hoja en el libro de excel
      * @return
      * @throws IOException
      * @throws InvalidFormatException
+     * @author bgaona
+     * @since 27/11/2017
      */
     private Sheet getSheetByIndex(String excelFilePath, int sheetNumber) throws IOException, InvalidFormatException {
         Sheet sheet = getWorkBook(excelFilePath).getSheetAt(sheetNumber);
@@ -92,13 +80,12 @@ public class ExcelReader {
     /**
      * Devuelve el libro correspondiente a la hoja determinada con antelación
      *
-     * @since 27/11/2017
-     * @author bgaona
-     * @param excelFilePath
-     *            Ruta del archivo de excel
+     * @param excelFilePath Ruta del archivo de excel
      * @return
      * @throws IOException
      * @throws InvalidFormatException
+     * @author bgaona
+     * @since 27/11/2017
      */
     private Workbook getWorkBook(String excelFilePath) throws IOException, InvalidFormatException {
         return WorkbookFactory.create(new File(excelFilePath));
@@ -108,11 +95,10 @@ public class ExcelReader {
      * Retorna la lista en forma de Map de todas las filas que contiene la hoja de
      * excel, teniendo en cuenta la primera fila como los nombres de la columna
      *
-     * @since 27/11/2017
-     * @author bgaona
-     * @param sheet
-     *            Hoja de excel
+     * @param sheet Hoja de excel
      * @return
+     * @author bgaona
+     * @since 27/11/2017
      */
     private List<Map<String, String>> readSheet(Sheet sheet) {
         Row row;
@@ -137,10 +123,10 @@ public class ExcelReader {
     /**
      * Obtiene el número de filas conceniernte a encabezado de la hoja
      *
-     * @since 27/11/2017
-     * @author bgaona
      * @param sheet
      * @return
+     * @author bgaona
+     * @since 27/11/2017
      */
     private int getHeaderRowNumber(Sheet sheet) {
         Row row;
@@ -171,11 +157,11 @@ public class ExcelReader {
     /**
      * Obtiene la fila de acuerdo a la hoja y el número de ésta
      *
-     * @since 27/11/2017
-     * @author bgaona
      * @param sheet
      * @param rowNumber
      * @return
+     * @author bgaona
+     * @since 27/11/2017
      */
     private Row getRow(Sheet sheet, int rowNumber) {
         return sheet.getRow(rowNumber);
@@ -184,12 +170,12 @@ public class ExcelReader {
     /**
      * Obtiene el valor de cada una de las celdas -------> reevaluar y dejar como texto todos los valores
      *
-     * @since 27/11/2017
-     * @author bgaona
      * @param sheet
      * @param row
      * @param currentColumn
      * @return
+     * @author bgaona
+     * @since 27/11/2017
      */
 
 

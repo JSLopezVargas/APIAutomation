@@ -17,19 +17,21 @@ public class PostPlaceHolderTask implements Task {
         this.user = user;
         this.endPoint = endPoint;
     }
+
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 Post.to(endPoint).with(
                         requestSpecification -> requestSpecification
                                 .contentType(ContentType.JSON)
-                                .header("accept","application/json")
+                                .header("accept", "application/json")
                                 .body(user).log().all()
                 )
         );
 
     }
-    public static Performable withUserData(InfoDataModel1 user, String endPoint){
-        return instrumented(PostPlaceHolderTask.class,user,endPoint);
+
+    public static Performable withUserData(InfoDataModel1 user, String endPoint) {
+        return instrumented(PostPlaceHolderTask.class, user, endPoint);
     }
 }
